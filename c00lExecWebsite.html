@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c00l Exec</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://th.bing.com/th/id/OIP.TJXwjRDZ4C3QoGVeifBrtwHaD4?rs=1&pid=ImgDetMain') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .navbar {
+            display: flex;
+            background-color: #333;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
+        }
+        .navbar a.active {
+            background-color: green;
+        }
+        .content {
+            padding: 20px;
+            color: white;
+        }
+        .image-box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+        .profile-pic {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .devs-list {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" class="tab-link" onclick="showContent('products')">Products</a>
+        <a href="#" class="tab-link" onclick="showContent('announcements')">Announcements</a>
+        <a href="https://discord.gg/amsvdqGHPA" target="_blank" class="tab-link">Discord</a>
+        <a href="https://github.com/" target="_blank" class="tab-link">Github</a>
+        <a href="#" class="tab-link" onclick="showContent('developers')">Developers</a>
+    </div>
+
+    <div id="content" class="content">
+        <!-- Content will be injected here -->
+    </div>
+
+    <script>
+        function showContent(tab) {
+            const contentDiv = document.getElementById('content');
+            const tabs = document.querySelectorAll('.tab-link');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            document.querySelector(`.tab-link[onclick="showContent('${tab}')"]`).classList.add('active');
+
+            if (tab === 'products') {
+                contentDiv.innerHTML = `
+                    <div class="image-box" onclick="window.location.href='payment.html'">
+                        <img src="https://th.bing.com/th/id/R.3b48b9c5a3c8c85ef05a019df9db3b24?rik=HWUCouChpA3kFA&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fninja-transparent%2fninja-transparent-2.png&ehk=OYTW2pIULxLyVqtVa%2fKpojLLGLNfK7nOWp6JRzmAUMo%3d&risl=&pid=ImgRaw&r=0" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                `;
+            } else if (tab === 'announcements') {
+                contentDiv.innerHTML = `
+                    <div class="profile-pic" style="background: url('https://th.bing.com/th/id/R.3b48b9c5a3c8c85ef05a019df9db3b24?rik=HWUCouChpA3kFA&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fninja-transparent%2fninja-transparent-2.png&ehk=OYTW2pIULxLyVqtVa%2fKpojLLGLNfK7nOWp6JRzmAUMo%3d&risl=&pid=ImgRaw&r=0') no-repeat center center; background-size: cover;"></div>
+                    <span>Hi guys!</span>
+                `;
+            } else if (tab === 'developers') {
+                contentDiv.innerHTML = `
+                    <div class="devs-list">danxvo, moddersazkk</div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
